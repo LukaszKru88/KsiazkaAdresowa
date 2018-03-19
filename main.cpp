@@ -11,7 +11,6 @@ string zamianaIntNaString(int liczba);
 void dodajOsobe(vector<string> &osoby);
 void odczytZpliku(vector<string> &osoby);
 void zapisDoPliku(vector<string> osoby);
-void zapisDoPlikuZnadpisem(vector<string> osoby);
 void wyszukiwaniePoImieniu(vector<string> osoby);
 void wyszukiwaniePoNazwisku(vector<string> osoby);
 void usuwanieWybranejOsoby(vector<string> &osoby);
@@ -112,7 +111,7 @@ void dodajOsobe(vector<string> &osoby) {
     transform(adres.begin(),adres.end(),adres.begin(),::toupper);
     osoby.push_back(adres);
 
-    zapisDoPlikuZnadpisem(osoby);
+    zapisDoPliku(osoby);
 }
 
 void odczytZpliku(vector<string> &osoby) {
@@ -143,20 +142,6 @@ void odczytZpliku(vector<string> &osoby) {
     }
 }
 void zapisDoPliku(vector<string> osoby) {
-    fstream plik;
-    plik.open("KsiazkaAdresowa.txt", ios::out);
-    if(plik.good()) {
-        vector<string>::iterator it = osoby.begin();
-        for(it; it != osoby.end(); it += 6) {
-            plik << *it << "|" << *(it + 1) << "|" << *(it + 2) << "|" << *(it + 3) << "|" << *(it + 4) << "|" << *(it + 5) << "|" << endl;
-        }
-        plik.close();
-    } else {
-        cout << "Nie mozna otworzyc pliku: KsiazkaAdresowa.txt" << endl;
-    }
-}
-
-void zapisDoPlikuZnadpisem(vector<string> osoby) {
     fstream plik;
     plik.open("KsiazkaAdresowa.txt", ios::out);
     if(plik.good()) {
