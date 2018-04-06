@@ -12,13 +12,12 @@ string nazwaPlikuAdresataTymczasowa = "KsiazkaAdresowa_tymczasowa.txt";
 string nazwaPlikuUzytkownikow = "Uzytkownicy.txt";
 
 struct Uzytkownik {
-    int id;
-    string nazwa, haslo;
+    int id = 0;
+    string nazwa = "", haslo = "";
 };
 
 struct Adresat {
-    int idAdresata = 0;
-    int idUzytkownika;
+    int idAdresata = 0, idUzytkownika = 0;
     string imie = "", nazwisko = "", numerTelefonu = "", email = "", adres = "";
 };
 
